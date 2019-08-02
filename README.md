@@ -23,3 +23,4 @@ This game is built using JavaScript, HTML, and CSS.
 2. Background color of box will change where the guess is right or wrong
 3. Highlight the Row and Column when hovering over a box on the game grid
 4. Score counter to count how many times the user has won
+5. Timer and record best time 
