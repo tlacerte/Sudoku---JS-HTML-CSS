@@ -32,14 +32,21 @@ This is how the page of the game will be set up when levels are established.
 Pseudocode 
 
 1. Initialize application by having the game board ready to play 
+
 1.1 Use forEach to loop through 9x9 array and create div elements through JS
+
 1.2 Make each element an input so players can type directly into the game board
 
 2. Through the render function, establish solution possibilities
+
 2.1 Use addition to see if the boxes, columns and rows all === 45
+
 2.2 Within the solution, randomly input half of the board for the players to use to play
+
 2.3 Continue to check if the user’s input matches the solution 
+
 2.3.1 Store the input 
+
 2.3.2 Change back ground of input depending if the guess matches the solution
 
 3. When the board is complete, display a message and animate the board
