@@ -1,3 +1,5 @@
+# Sudoku 
+
 ## Objective 
 The goal of this project is to build a web-based game application. This is a take on the class game Sudoku.
 
