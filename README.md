@@ -13,6 +13,10 @@ This is how the page of the game will be set up when levels are established.
 ![alt wireframe](https://i.imgur.com/O8BnCJ8.png)
 
 ## User stories 
+As a user, I can play the classic game of Sudoku on a web application. 
+I can play the game by myself and win or lose depending on my own problem solving abilities. 
+I am told when my guess is right or wrong, leading me to rethink my answer. 
+I can restart and solve the game as many times as I want to. 
 
 ## Features list 
 - Randomly generates Sudoku board on launch
@@ -25,8 +29,8 @@ This is how the page of the game will be set up when levels are established.
 1. Have level options that will randomly fill the board with more or less numbers to start out with
 2. Background color of box will change where the guess is right or wrong
 3. Highlight the Row and Column when hovering over a box on the game grid
-4. Score counter to count how many times the user has won
-5. Timer and record best time 
+4. Score counter to count how many times the user has won/timer and record best time 
+5. Only have 3 tries to get an answer wrong resulting in Game Over 
 
 ## Pseudocode
 Pseudocode 
