@@ -6,7 +6,8 @@ Sudoku involves a game board that is a grid of 81 squares. The grid is divided i
 ## Technology used
 This game is built using JavaScript, HTML, and CSS.
 
-## Wireframes 
+## Wireframe
+This is how the page of the game will be set up when levels are established. 
 ![alt wireframe](https://i.imgur.com/O8BnCJ8.png)
 
 ## User stories 
