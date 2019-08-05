@@ -1,14 +1,7 @@
-/*----- constants -----*/
-
-/*----- app's state (variables) -----*/
+//field - the whole sudoku playing board
 let field = [];
 
-/*----- cached element references -----*/
-
-/*----- event listeners -----*/
-
-/*----- functions -----*/
-
+//creating the table to insert into html
 function buildField() {
 	for (let row = 1; row <= 9; row++) {
 		let tr = document.createElement('tr');
@@ -27,6 +20,7 @@ function buildField() {
 		document.getElementById('sudoku-table').appendChild(tr);
 	}
 }
+//filling the 9x9 table with inputs
 function fillField() {
 	field = [];
 	for (let y = 0; y < 9; y++) {
@@ -35,7 +29,7 @@ function fillField() {
 			field[y][x] = 0;
 		}
 	}
-	console.log(field);
+	//console.log(field);
 }       
             
 //functions for checking the solution of sudoku
@@ -127,5 +121,41 @@ function validateField() {
         }
     }
     return true;
+}
+
+function getField() {
+    for (let row = 1; row <= 9; row++) {
+        for (let col = 1; col <= 9; col++) {
+            let currentValue = parseInt(document.querySelectorAll('#row' + row + ' #col' + col + ' input')[0].value);
+            if (!isNaN(currentValue)) {
+                field[row - 1][col - 1] = currentValue;
+            } else {
+                field[row - 1][col - 1] = 0;
+            }
+        }
+    }
+}
+
+function updateField() {
+    for (let row = 1; row <= 9; row++) {
+        for (let col = 1; col <= 9; col++) {
+            if (field[row - 1][col - 1] !== 0) {
+                document.querySelectorAll('#row' + row + ' #col' + col + ' input')[0].value = field[row - 1][col - 1];
+            } else {
+                document.querySelectorAll('#row' + row + ' #col' + col + ' input')[0].value = '';
+            }
+        }
+    }
+}
+
+function updateFieldsLeft() {
+    let fieldsLeft = 0;
+    for (let row = 1; row <= 9; row++) {
+        for (let col = 1; col <= 9; col++) {
+            if (document.querySelectorAll('#row' + row + ' #col' + col + ' input')[0].value.length === 0) {
+                fieldsLeft++;
+            }
+        }
+    }
 }
 
