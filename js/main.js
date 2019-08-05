@@ -158,4 +158,27 @@ function updateFieldsLeft() {
         }
     }
 }
+//make sure the input is 1-9
+function checkKeyDown(event) {
+    if (event.key !== 'Backspace' && !event.key.match(/^[1-9]$/g))
+        event.preventDefault();
+}
+//create a random board that is solvable 
+function randomize() {
+    fillField();
+    updateField();
+    for (let y = 0; y < field.length; y++) {
+        for (let x = 0; x < field[y].length; x++) {
+            if (Math.floor(Math.random() * 2) === 0) {
+                field[y][x] = Math.floor((Math.random() * 9) + 1);
+                let valid = validateField();
+                if (!valid) {
+                    field[y][x] = 0;
+                }
+            }
+        }
+    }
+    updateField();
+    updateFieldsLeft();
+}
 
