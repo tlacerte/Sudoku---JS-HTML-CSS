@@ -9,19 +9,14 @@ h1 {
 Submit button:
 */
 #randomize, #validate {
-	border-radius:         0px;
-	font-family:           'Trebuchet MS';
-	color:                 #000;
-	font-size:             20px;
-	background:            #fff;
-	padding:               10px 20px 10px 20px;
-	border:                solid #000 2px;
-	text-decoration:       none;
-
-	display:               table;
-	margin:                0 auto;
-	margin-top:            10px;
-	cursor:                pointer;
+  border-radius: 0px;
+  font-family: 'Trebuchet MS';
+	color: black;
+	font-size: 20px;
+	background: white;
+	border: 2px solid black;
+  margin: 0 auto;
+  margin-bottom: 10px;
 }
 
 #randomize:hover, #validate:hover {
@@ -64,10 +59,6 @@ Sudoku inputs:
 	height:     45px;
 }
 
-input:focus {
-	outline: none;
-}
-
 /*
 Sudoku borders:
 */
@@ -94,6 +85,10 @@ table, td {
 }
 
 td {
-	text-align: center;
+  text-align: center;
+}
+
+td:hover {
+  background-color: blue;
 }
 

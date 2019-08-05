@@ -1,7 +1,7 @@
 # Sudoku 
 
 ## Objective 
-The goal of this project is to build a web-based game application. This is a take on the class game Sudoku.
+The goal of this project is to build a web-based game application. This is an adapted version of the classic game Sudoku.
 
 Sudoku involves a game board that is a grid of 81 squares. The grid is divided into nine blocks, each containing nine squares. The rules of the game are simple: each of the nine blocks has to contain all the numbers 1-9 within its squares. Each number can only appear once in a row, column or box.
 
