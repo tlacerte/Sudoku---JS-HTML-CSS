@@ -202,14 +202,17 @@ function validate() {
     if (valid) {
         button.classList.add('valid');
         button.innerHTML = '✔';
+        button.style.backgroundColor = 'limegreen';
     } else {
         button.classList.add('invalid');
         button.innerHTML = '✘';
+        button.style.backgroundColor = 'red';
     }
     setTimeout(function () {
         button.classList.remove('valid');
         button.classList.remove('invalid');
         button.innerHTML = 'Validate';
+        button.style.backgroundColor = 'white';
     }, 1000);
 }
 
