@@ -1,15 +1,16 @@
-#header {
-	text-align: center;
-	font-size:  60px;
-	margin-top: 40px;
+body {
+  font-family: 'Trebuchet MS';
 }
 
+h1 {
+  text-align: center;
+}
 /*
 Submit button:
 */
 #randomize, #validate {
 	border-radius:         0px;
-	font-family:           Arial;
+	font-family:           'Trebuchet MS';
 	color:                 #000;
 	font-size:             20px;
 	background:            #fff;
@@ -26,6 +27,12 @@ Submit button:
 #randomize:hover, #validate:hover {
 	background:      #ebebeb;
 	text-decoration: none;
+}
+
+#buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*
@@ -82,7 +89,7 @@ Sudoku borders:
 
 /* table */
 table, td {
-	border:          1px solid black;
+	border: 1px solid black;
 	border-collapse: collapse;
 }
 

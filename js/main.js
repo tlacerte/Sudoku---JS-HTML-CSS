@@ -1,15 +1,16 @@
 //field - the whole sudoku playing board
 let field = [];
 
-//creating the table to insert into html
+//all the functions that will happen on load 
 init();
 
 function init() {
     buildField();
     fillField();
     updateFieldsLeft();
+    randomize();
 }
-
+//creating the table to insert into html
 function buildField() {
 	for (let row = 1; row <= 9; row++) {
 		let tr = document.createElement('tr');
@@ -190,6 +191,9 @@ function randomize() {
     updateFieldsLeft();
 }
 
+//click new game to randomize another game board
+document.getElementById('randomize').addEventListener('click', randomize);
+
 //validate the board/make sure that user is on the right track
 function validate() {
     let button = document.getElementById('validate');
@@ -206,5 +210,8 @@ function validate() {
         button.classList.remove('valid');
         button.classList.remove('invalid');
         button.innerHTML = 'Validate';
-    }, 2500);
+    }, 2000);
 }
+
+//click validate to see if you are on the right track in the game
+document.getElementById('validate').addEventListener('click', validate);
