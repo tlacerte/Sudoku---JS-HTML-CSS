@@ -1,37 +1,45 @@
+html, * {
+  font-family: 'Trebuchet MS';
+  box-sizing: border-box;
+}
+
 body {
-    font-family: 'Trebuchet MS';
-    display: block;
-    margin: auto;
-  }
+  margin: auto;
+  text-align: center;
+}
   
-  .container {
-    height: 90vh;
-    display: grid;
-    grid-template-columns: 50px 50px 50px 50px 50px 50px 50px 50px 50px;
-    grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 50px 50px;
-    justify-content: center;
-  }
+.container {
+  height: 90vh;
+  display: grid;
+  grid-template-columns: 50px 50px 50px 50px 50px 50px 50px 50px 50px;
+  grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 50px 50px;
+  justify-content: center;
+}
   
-  h1 {
-    text-align: center;
-  }
+h1 {
+  text-align: center;
+}
   
-  .cell {
-    border: 1px solid black;
-    font-size: 25px;
-    text-align: center;
-    vertical-align: middle;
-  }
+.cell {
+  border: 1px solid black;
+  font-size: 25px;
+  text-align: center;
+  vertical-align: middle;
+}
   
-  .cell:hover {
-    background-color: lightblue;
-  }
+.cell:hover {
+  border: 4px solid black;
+}
   
-  input {
-    width: 35px;
-    height: 35px;
-    border: 5px solid white; 
-    font-size: 25px;
-    text-align: center;
-  }
+input {
+  width: 35px;
+  height: 40px;
+  border: 5px solid white; 
+  font-size: 25px;
+  text-align: center;
+}
+
+button {
+  margin: 10px;
+}
 
