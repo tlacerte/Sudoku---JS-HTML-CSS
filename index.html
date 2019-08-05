@@ -9,99 +9,20 @@
     <script defer src="js/main.js"></script>
 </head>
 <body>
-    <h1>Sudoku</h1>
-    <button>New Game</button>
-    <button>Solve</button>
-    <div class="container">
-        <!-- <div class="cell cell-00"></div>
-        <div class="cell cell-01"></div>
-        <div class="cell cell-02"></div>
-        <div class="cell cell-03"></div>
-        <div class="cell cell-04"></div>
-        <div class="cell cell-05"></div>
-        <div class="cell cell-06"></div>
-        <div class="cell cell-07"></div>
-        <div class="cell cell-08"></div> 
-      
-        <div class="cell cell-10"></div>
-        <div class="cell cell-11"></div>
-        <div class="cell cell-12"></div>
-        <div class="cell cell-13"></div>
-        <div class="cell cell-14"></div>
-        <div class="cell cell-15"></div>
-        <div class="cell cell-16"></div>
-        <div class="cell cell-17"></div>
-        <div class="cell cell-18"></div> 
-          
-        <div class="cell cell-20"></div>
-        <div class="cell cell-21"></div>
-        <div class="cell cell-22"></div>
-        <div class="cell cell-23"></div>
-        <div class="cell cell-24"></div>
-        <div class="cell cell-25"></div>
-        <div class="cell cell-26"></div>
-        <div class="cell cell-27"></div>
-        <div class="cell cell-28"></div> 
-          
-        <div class="cell cell-30"></div>
-        <div class="cell cell-31"></div>
-        <div class="cell cell-32"></div>
-        <div class="cell cell-33"></div>
-        <div class="cell cell-34"></div>
-        <div class="cell cell-35"></div>
-        <div class="cell cell-36"></div>
-        <div class="cell cell-37"></div>
-        <div class="cell cell-38"></div> 
-          
-        <div class="cell cell-40"></div>
-        <div class="cell cell-41"></div>
-        <div class="cell cell-42"></div>
-        <div class="cell cell-43"></div>
-        <div class="cell cell-44"></div>
-        <div class="cell cell-45"></div>
-        <div class="cell cell-46"></div>
-        <div class="cell cell-47"></div>
-        <div class="cell cell-48"></div> 
-          
-        <div class="cell cell-50"></div>
-        <div class="cell cell-51"></div>
-        <div class="cell cell-52"></div>
-        <div class="cell cell-53"></div>
-        <div class="cell cell-54"></div>
-        <div class="cell cell-55"></div>
-        <div class="cell cell-56"></div>
-        <div class="cell cell-57"></div>
-        <div class="cell cell-58"></div> 
-          
-        <div class="cell cell-60"></div>
-        <div class="cell cell-61"></div>
-        <div class="cell cell-62"></div>
-        <div class="cell cell-63"></div>
-        <div class="cell cell-64"></div>
-        <div class="cell cell-65"></div>
-        <div class="cell cell-66"></div>
-        <div class="cell cell-67"></div>
-        <div class="cell cell-68"></div> 
-          
-        <div class="cell cell-70"></div>
-        <div class="cell cell-71"></div>
-        <div class="cell cell-72"></div>
-        <div class="cell cell-73"></div>
-        <div class="cell cell-74"></div>
-        <div class="cell cell-75"></div>
-        <div class="cell cell-76"></div>
-        <div class="cell cell-77"></div>
-        <div class="cell cell-78"></div> 
-          
-        <div class="cell cell-80"></div>
-        <div class="cell cell-81"></div>
-        <div class="cell cell-82"></div>
-        <div class="cell cell-83"></div>
-        <div class="cell cell-84"></div>
-        <div class="cell cell-85"></div>
-        <div class="cell cell-86"></div>
-        <div class="cell cell-87"></div>
-        <div class="cell cell-88"></div>  -->
+    <div class="sudoku">
+        <form id="form">
+            <table id="sudoku-table">
+            </table>
+        </form>
+    
+    <div id="buttons">
+        <button onClick="randomize()" id="randomize">New Game</button>
+    
+            <div id="validate-container">
+        <button onClick="validate()" id="validate">Validate</button>
+            <p id="fields-left">81 fields left</p>
+         </div>
+     </div>
     </div>
     </body>
 </html>
