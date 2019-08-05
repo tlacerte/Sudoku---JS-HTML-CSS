@@ -178,7 +178,7 @@ function randomize() {
     updateField();
     for (let y = 0; y < field.length; y++) {
         for (let x = 0; x < field[y].length; x++) {
-            if (Math.floor(Math.random() * 2) === 0) {
+            if (Math.floor(Math.random()) === 0) {
                 field[y][x] = Math.floor((Math.random() * 9) + 1);
                 let valid = validateField();
                 if (!valid) {
@@ -210,8 +210,9 @@ function validate() {
         button.classList.remove('valid');
         button.classList.remove('invalid');
         button.innerHTML = 'Validate';
-    }, 2000);
+    }, 1000);
 }
 
 //click validate to see if you are on the right track in the game
 document.getElementById('validate').addEventListener('click', validate);
+

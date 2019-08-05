@@ -5,9 +5,7 @@ body {
 h1 {
   text-align: center;
 }
-/*
-Submit button:
-*/
+
 #randomize, #validate {
   border-radius: 0px;
   font-family: 'Trebuchet MS';
@@ -20,43 +18,33 @@ Submit button:
 }
 
 #randomize:hover, #validate:hover {
-	background:      #ebebeb;
+	background: #ebebeb;
 	text-decoration: none;
 }
 
-#buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+section {
+  display: block;
+  text-align: center;
 }
 
-/*
-"fields left"-label
-*/
 #fields-left {
 	text-align: center;
 	margin-top: 8px;
 }
 
-/*
-Center the table
-*/
 .sudoku {
 	display: table;
 	margin:  0 auto;
 }
 
-/*
-Sudoku inputs:
-*/
 #sudoku-table input {
-	border:     none;
-	padding:    0px;
-	margin:     0px;
+	border: none;
+	padding: 0px;
+	margin: 0px;
 	text-align: center;
-	font-size:  30px;
-	width:      45px;
-	height:     45px;
+	font-size:30px;
+	width: 45px;
+  height: 45px;
 }
 
 /*
@@ -89,6 +77,5 @@ td {
 }
 
 td:hover {
-  background-color: blue;
+  background: lightblue;
 }
-
