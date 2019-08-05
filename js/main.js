@@ -2,6 +2,14 @@
 let field = [];
 
 //creating the table to insert into html
+init();
+
+function init() {
+    buildField();
+    fillField();
+    updateFieldsLeft();
+}
+
 function buildField() {
 	for (let row = 1; row <= 9; row++) {
 		let tr = document.createElement('tr');
@@ -182,3 +190,21 @@ function randomize() {
     updateFieldsLeft();
 }
 
+//validate the board/make sure that user is on the right track
+function validate() {
+    let button = document.getElementById('validate');
+    getField();
+    let valid = validateField();
+    if (valid) {
+        button.classList.add('valid');
+        button.innerHTML = '✔';
+    } else {
+        button.classList.add('invalid');
+        button.innerHTML = '✘';
+    }
+    setTimeout(function () {
+        button.classList.remove('valid');
+        button.classList.remove('invalid');
+        button.innerHTML = 'Validate';
+    }, 2500);
+}
