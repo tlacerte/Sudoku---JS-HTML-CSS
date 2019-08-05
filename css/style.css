@@ -8,8 +8,6 @@
 Submit button:
 */
 #randomize, #validate {
-	-webkit-border-radius: 0;
-	-moz-border-radius:    0;
 	border-radius:         0px;
 	font-family:           Arial;
 	color:                 #000;
@@ -23,8 +21,6 @@ Submit button:
 	margin:                0 auto;
 	margin-top:            10px;
 	cursor:                pointer;
-
-	transition:            all ease .25s;
 }
 
 #randomize:hover, #validate:hover {
