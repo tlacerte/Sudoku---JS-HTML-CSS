@@ -83,3 +83,7 @@ td {
 td:hover {
   background: lightblue;
 }
+
+input {
+  font-family: 'Trebuchet MS';
+}
