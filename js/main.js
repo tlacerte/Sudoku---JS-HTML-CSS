@@ -132,6 +132,7 @@ function validateField() {
     return true;
 }
 
+//functions to build the whole board
 function getField() {
     for (let row = 1; row <= 9; row++) {
         for (let col = 1; col <= 9; col++) {
@@ -172,6 +173,7 @@ function checkKeyDown(event) {
     if (event.key !== 'Backspace' && !event.key.match(/^[1-9]$/g))
         event.preventDefault();
 }
+
 //create a random board that is solvable 
 function randomize() {
     fillField();
