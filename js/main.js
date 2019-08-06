@@ -221,3 +221,11 @@ function validate() {
 //click validate to see if you are on the right track in the game
 document.getElementById('validate').addEventListener('click', validate);
 
+function hover(){
+    let hov = document.querySelectorAll('cell');
+    hov.addEventListener('mouseover', function(event){
+        event.target.style.color = 'green';
+    })
+}
+
+hover();

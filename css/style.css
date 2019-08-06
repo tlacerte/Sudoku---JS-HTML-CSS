@@ -80,10 +80,40 @@ td {
   text-align: center;
 }
 
-td:hover {
-  background: lightblue;
-}
-
 input {
   font-family: 'Trebuchet MS';
+}
+
+table {
+  overflow: hidden;
+}
+/* hover */
+tr:hover {
+  background-color: blueviolet;
+}
+
+td, th {
+  position: relative;
+}
+
+td:hover::before { 
+  background-color: white;
+  content: '';  
+  height: 100%;
+  left: -5000px;
+  position: absolute;  
+  top: 0;
+  width: 10000px;   
+  z-index: -2;        
+}
+
+td:hover::after { 
+  background-color: blueviolet;
+  content: '';  
+  height: 10000px;    
+  left: 0;
+  position: absolute;  
+  top: -5000px;
+  width: 100%;
+  z-index: -1;        
 }
