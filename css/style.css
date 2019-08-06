@@ -88,11 +88,15 @@ table {
   overflow: hidden;
 }
 /* hover */
-tr:hover {
-  background-color: blueviolet;
+td:hover {
+  background-color: #60D7E0;
 }
 
-td, th {
+tr:hover {
+  background-color: #336699;
+}
+
+td {
   position: relative;
 }
 
@@ -108,7 +112,7 @@ td:hover::before {
 }
 
 td:hover::after { 
-  background-color: blueviolet;
+  background-color: #336699;
   content: '';  
   height: 10000px;    
   left: 0;
