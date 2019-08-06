@@ -66,6 +66,7 @@ init();
 
 function init(){
     createField();
+    checkInput();
 }
 
 function createField(){
@@ -73,21 +74,29 @@ function createField(){
     row.forEach(function(cell, cidx){
         let newDiv = document.createElement('div');
         newDiv.setAttribute('class', 'cell');
+        newDiv.setAttribute('value', cell)
         container.appendChild(newDiv);
-        //let halfBoard = solution1[ridx][cidx][Math.floor(Math.random()*solution1.length*4)];
         newDiv.innerHTML = board1[ridx][cidx];
         if (board1[ridx][cidx] === null) {
-            newDiv.innerHTML = "<input id='guess'></input>";
+            newDiv.innerHTML = "<input type='text' id='guess'></input>";
+            newDiv.setAttribute('value', null)
         }
     })
   })
 }
 
-function checkInput(num){
-    let guess = parseFloat(document.getElementById('guess').value);
-    board1.forEach(function(){
-        if (board1.indexOf(guess) === solution1.includes(guess)){
-            console.log(true);
-        } else return false;
+function checkInput(){
+    let guess = parseInt(document.querySelectorAll('#guess').value);
+    board1.forEach(function(row, ridx){
+        row.forEach(function(cell, cidx){
+            if (board1.indexOf(guess) === solution1.indexOf(guess)){
+                console.log('true');
+            }
+        })
     })
 }
+
+
+document.querySelector('.container').addEventListener('keyup', function(evt){    
+    console.log(evt.target.value);
+})
