@@ -9,7 +9,7 @@ h1 {
   color: #000000;
   background: #FFFFFF;
   font-size: 40px;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 
 #randomize, #validate {
@@ -20,8 +20,9 @@ h1 {
 	background: white;
 	border: 2px solid black;
   margin: 0 auto;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   text-shadow: 1px 1px 0 #bcbcbc, 1px 1px 0 #9c9c9c;
+  outline: none;
 }
 
 #randomize:hover, #validate:hover {
