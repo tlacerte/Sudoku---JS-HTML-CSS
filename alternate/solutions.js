@@ -66,37 +66,36 @@ init();
 
 function init(){
     createField();
-    checkInput();
 }
 
 function createField(){
   solution1.forEach(function(row, ridx){
-    row.forEach(function(cell, cidx){
+    row.forEach(function(c7ell, cidx){
         let newDiv = document.createElement('div');
         newDiv.setAttribute('class', 'cell');
-        newDiv.setAttribute('value', cell)
+        //newDiv.setAttribute('value', cell)
         container.appendChild(newDiv);
         newDiv.innerHTML = board1[ridx][cidx];
         if (board1[ridx][cidx] === null) {
-            newDiv.innerHTML = "<input type='text' id='guess'></input>";
+            newDiv.innerHTML = `<input type='text' data-answer=${solution1[ridx][cidx]} id='guess'></input>`;
             newDiv.setAttribute('value', null)
         }
     })
   })
 }
 
-function checkInput(){
-    let guess = parseInt(document.querySelectorAll('#guess').value);
-    board1.forEach(function(row, ridx){
-        row.forEach(function(cell, cidx){
-            if (board1.indexOf(guess) === solution1.indexOf(guess)){
-                console.log('true');
-            }
-        })
-    })
+function checkInput(evt){
+    let guess = evt.target.value;
+    let answer = evt.target.getAttribute('data-answer');
+    if (guess === answer) {
+        
+        console.log('true')
+    } else {
+        console.log('false')
+    }
 }
 
+//event listener to check the input against the solution 
+document.querySelector('.container').addEventListener('keyup', checkInput)
 
-document.querySelector('.container').addEventListener('keyup', function(evt){    
-    console.log(evt.target.value);
-})
+

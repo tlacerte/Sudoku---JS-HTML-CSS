@@ -7,7 +7,7 @@ init();
 function init() {
     buildField();
     fillField();
-    randomize();
+    //randomize();
 }
 //creating the table to insert into html
 function buildField() {
@@ -101,6 +101,7 @@ function validateBlock(blockNum, blockRow) {
     return true;
 }
 
+//uses the three functions above to check rows columns and blocks 
 function validateField() {
     // Validate rows
     for (let y = 0; y < field.length; y++) {
@@ -164,39 +165,49 @@ function checkKeyDown(event) {
 }
 
 //create a random board that is solvable 
-function randomize() {
-    fillField();
-    //updateField();
-    for (let y = 0; y < field.length; y++) {
-        for (let x = 0; x < field[y].length; x++) {
-            if (Math.floor(Math.random()) === 0) {
-                field[y][x] = Math.floor((Math.random() * 9) + 1);
-                let valid = validateField();
-                if (!valid) {
-                    field[y][x] = 0;
-                }
-            }
-        }
-    }
-    updateField();
-    //console.log(field);
-}
+// function randomize() {
+//     fillField();
+//     //updateField();
+//     for (let y = 0; y < field.length; y++) {
+//         for (let x = 0; x < field[y].length; x++) {
+//             if (Math.floor(Math.random()) === 0) {
+//                 field[y][x] = Math.floor((Math.random() * 9) + 1);
+//                 let valid = validateField();
+//                 if (!valid) {
+//                     field[y][x] = 0;
+//                 }
+//             }
+//         }
+//     }
+//     updateField();
+//     //console.log(field);
+// }
 
 // function checkWinner(){
-//     let valid = validField();
+//     let valid = validateField();
+//     let fieldNotFull = field.includes(0);
 //     for (let row = 1; row <= 9; row++) {
 //         for (let col = 1; col <= 9; col++) {
-//             if (field[row][col] !== 0 && ){
-
+//             if (valid === true && fieldNotFull === false){
+//                 console.log('winner');
 //             }
 //         }
 //     }
 // }
 
+// checkWinner();
+
+function getSolvedField (){
+    for (let row = 1; row <= 9; row++){
+        for (let col = 1; col <= 9; col++){
+            //need to put in a fill array where all conditions for validate are true 
+        }
+    }
+}
 
 
 //click new game to randomize another game board
-document.getElementById('randomize').addEventListener('click', randomize);
+//document.getElementById('randomize').addEventListener('click', randomize);
 
 //validate the board/make sure that user is on the right track
 function validate() {
