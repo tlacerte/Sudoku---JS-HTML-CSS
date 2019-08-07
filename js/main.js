@@ -7,7 +7,6 @@ init();
 function init() {
     buildField();
     fillField();
-    updateFieldsLeft();
     randomize();
 }
 //creating the table to insert into html
@@ -22,14 +21,13 @@ function buildField() {
 			input.type = 'text';
 			input.maxLength = 1;
 			input.addEventListener('keydown', checkKeyDown);
-			input.addEventListener('input', updateFieldsLeft);
 			td.appendChild(input);
 			tr.appendChild(td);
 		}
 		document.getElementById('sudoku-table').appendChild(tr);
 	}
 }
-//filling the 9x9 table with inputs
+//filling the 9x9 gameboard 
 function fillField() {
 	field = [];
 	for (let y = 0; y < 9; y++) {
@@ -158,16 +156,6 @@ function updateField() {
     }
 }
 
-function updateFieldsLeft() {
-    let fieldsLeft = 0;
-    for (let row = 1; row <= 9; row++) {
-        for (let col = 1; col <= 9; col++) {
-            if (document.querySelectorAll('#row' + row + ' #col' + col + ' input')[0].value.length === 0) {
-                fieldsLeft++;
-            }
-        }
-    }
-}
 //make sure the input is 1-9
 function checkKeyDown(event) {
     if (event.key !== 'Backspace' && !event.key.match(/^[1-9]$/g))
@@ -190,7 +178,6 @@ function randomize() {
         }
     }
     updateField();
-    updateFieldsLeft();
 }
 
 //click new game to randomize another game board
