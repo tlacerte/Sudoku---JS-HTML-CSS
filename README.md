@@ -1,4 +1,5 @@
 # Sudoku 
+You can play the game at http://taylor-sudoku.surge.sh/
 
 ## Objective 
 The goal of this project is to build a web-based game application. This is an adapted version of the classic game Sudoku.
