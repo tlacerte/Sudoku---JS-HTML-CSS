@@ -165,7 +165,7 @@ function checkKeyDown(event) {
 //create a random board that is solvable 
 function randomize() {
     fillField();
-    updateField();
+    //updateField();
     for (let y = 0; y < field.length; y++) {
         for (let x = 0; x < field[y].length; x++) {
             if (Math.floor(Math.random()) === 0) {
