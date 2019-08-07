@@ -130,7 +130,7 @@ function validateField() {
     return true;
 }
 
-//functions to build the whole board
+//grab the current state of the board so can check if valid 
 function getField() {
     for (let row = 1; row <= 9; row++) {
         for (let col = 1; col <= 9; col++) {
@@ -144,6 +144,7 @@ function getField() {
     }
 }
 
+//update the current state of the board
 function updateField() {
     for (let row = 1; row <= 9; row++) {
         for (let col = 1; col <= 9; col++) {
@@ -178,7 +179,21 @@ function randomize() {
         }
     }
     updateField();
+    //console.log(field);
 }
+
+// function checkWinner(){
+//     let valid = validField();
+//     for (let row = 1; row <= 9; row++) {
+//         for (let col = 1; col <= 9; col++) {
+//             if (field[row][col] !== 0 && ){
+
+//             }
+//         }
+//     }
+// }
+
+
 
 //click new game to randomize another game board
 document.getElementById('randomize').addEventListener('click', randomize);

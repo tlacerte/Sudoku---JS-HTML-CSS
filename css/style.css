@@ -90,11 +90,13 @@ td {
 
 input {
   font-family: 'Trebuchet MS';
+  outline: #60D7E0;
 }
 
 table {
   overflow: hidden;
 }
+
 /* hover */
 td:hover {
   background-color: #60D7E0;
