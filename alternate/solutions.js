@@ -1,3 +1,4 @@
+//-----------board answers----------------
 const solution1 = [
     [1, 5, 2, 4, 8, 9, 3, 7, 6],
     [7, 3, 9, 2, 5, 6, 8, 4, 1],
@@ -85,8 +86,18 @@ var board3 = [
 
 const container = document.querySelector(".container");
 
+//------event listeners--------------
+//event listener to check the input against the solution with functions handleKeyUp, checkInput and checkWinner
+document.querySelector('.container').addEventListener('keyup', handleKeyUp)
 
-//functions
+//buttons
+//solve button - to solve the whole board, uses solveField function
+document.getElementById('solve').addEventListener('click', solveField)
+
+//new game button
+document.getElementById('new').addEventListener('click', newGame)
+
+//------------functions------------------
 init();
 
 function init(){
@@ -117,6 +128,11 @@ function checkKeyDown(event) {
         event.preventDefault();
 }
 
+//function for the keyup event listener 
+function handleKeyUp(evt){
+    checkWinner(checkInput(evt));
+}
+
 //check if the input matches the solution board 
 function checkInput(evt){
     let guessInput = evt.target
@@ -126,7 +142,7 @@ function checkInput(evt){
     if (guess === answer) {
         //console.log(true);
         let correctAnswerEl = document.createElement('div');
-        correctAnswerEl.setAttribute('class', 'cell');
+        correctAnswerEl.setAttribute('class', 'newcell');
         correctAnswerEl.innerText = answer;
         console.log(correctAnswerEl)
         if (guessInput !== null){
@@ -134,18 +150,11 @@ function checkInput(evt){
         }
         return true;
     } else {
-        //console.log(false);
+        let wrongAnswer = document.querySelectorAll('cell');
+        wrongAnswer.setAttribute('class', 'wrongcell')
         return false;
     }
-    
 }
-
-function handleKeyUp(evt){
-    checkWinner(checkInput(evt));
-}
-//event listener to check the input against the solution 
-document.querySelector('.container').addEventListener('keyup', handleKeyUp)
-
 
 function checkWinner(isSolved){ //@param -> boolean
     let inputAmount = document.querySelectorAll('input'); //returns a dom list
@@ -155,10 +164,6 @@ function checkWinner(isSolved){ //@param -> boolean
     }
 }
 
-//buttons
-//solve button - to solve the whole board 
-document.getElementById('solve').addEventListener('click', solveField)
-
 function solveField(){
     const solvedBoard = solution1.map(array => array.map(num => {
         let newDiv = document.createElement('div');
@@ -166,12 +171,30 @@ function solveField(){
         newDiv.innerText = num;
         return newDiv
     })).flat()
-    console.log(solvedBoard)
+    //console.log(solvedBoard)
     let oldDivs = document.querySelectorAll('.cell')
-    console.log(oldDivs)
+    //console.log(oldDivs)
     oldDivs.forEach((node, index) => {
         node.replaceWith(solvedBoard[index])
     })
-    //container.appendChild(solvedBoard);
 }
 
+function newGame(){
+    const newBoard = board1.map(array => array.map(num => {
+        let newDiv = document.createElement('div');
+        newDiv.setAttribute('class', 'cell');
+        newDiv.innerText = num;
+        return newDiv
+    })).flat()
+    //console.log(solvedBoard)
+    let oldDivs = document.querySelectorAll('.cell')
+    //console.log(oldDivs)
+    oldDivs.forEach((node, index) => {
+        node.replaceWith(newBoard[index])
+        if (board1[index] === null) {
+            newDiv.innerHTML = `<input type='text' data-answer=${solution1[index]} class='guesses'></input>`;
+            newDiv.setAttribute('value', null)
+            newDiv.addEventListener('keydown', checkKeyDown);
+        }
+    })
+}
