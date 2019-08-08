@@ -23,18 +23,6 @@ var board1 = [
     [8, 7, 3, 5, 1, 2, 9, 6, 4]
 ]
 
-// var board1 = [
-//     [1, null, null, 4, 8, null, null, 7, 6],
-//     [7, null, 9, 2, null, 6, null, null, 1],
-//     [null, 6, null, null, null, 1, 2, 9, null],
-//     [3, null, 7, null, 2, null, null, 5, 9],
-//     [null, 9, null, 7, null, null, null, null, 8],
-//     [null, 4, null, 8, null, 5, null, 1, null],
-//     [9, null, 4, null, null, 7, null, 8, 2],
-//     [6, null, 5, null, null, 8, 1, null, 7],
-//     [null, 7, null, null, 1, null, 9, null, 4]
-// ]
-
 const solution2 = [
     [7, 4, 9, 8, 5, 1, 3, 6, 2],
     [5, 2, 1, 6, 7, 3, 4, 8, 9],
@@ -72,45 +60,58 @@ const solution3 = [
 ]
 
 var board3 = [
-        [null, 9, null, null, 7, 3, null, 1, 4],
-        [7, 4, null, null, null, 1, 8, null, 5],
-        [null, 1, null, 4, null, 8, null, 7, null],
-        [4, 5, null, null, null, 2, null, 9, 1],
-        [null, null, 8, null, 3, null, 2, null, 7],
-        [1, null, 3, null, 4, null, null, 6, null],
-        [2, null, null, null, 9, null, 4, null, 3],
-        [null, 3, null, 2, null, 4, null, null, 6],
-        [6, null, null, 3, null, 7, 1, 2, null]
+    [null, 9, null, null, 7, 3, null, 1, 4],
+    [7, 4, null, null, null, 1, 8, null, 5],
+    [null, 1, null, 4, null, 8, null, 7, null],
+    [4, 5, null, null, null, 2, null, 9, 1],
+    [null, null, 8, null, 3, null, 2, null, 7],
+    [1, null, 3, null, 4, null, null, 6, null],
+    [2, null, null, null, 9, null, 4, null, 3],
+    [null, 3, null, 2, null, 4, null, null, 6],
+    [6, null, null, 3, null, 7, 1, 2, null]
 ]
-
-
+//where the sudoku board is going to go
 const container = document.querySelector(".container");
+
+//only can enter numbers 1-9
+function checkKeyDown(event) {
+    if (event.key !== 'Backspace' && !event.key.match(/^[1-9]$/g))
+        event.preventDefault();
+}
+//reload the page for a new game
+function newGame(){
+    document.location.reload()
+}
+//new game button
+document.getElementById('newgame').addEventListener('click', newGame);
 
 //------event listeners--------------
 //event listener to check the input against the solution with functions handleKeyUp, checkInput and checkWinner
-document.querySelector('.container').addEventListener('keyup', handleKeyUp)
+document.querySelector('.container').addEventListener('keyup', handleKeyUpL1, handleKeyUpL2)
 
 //buttons
 //solve button - to solve the whole board, uses solveField function
-document.getElementById('solve').addEventListener('click', solveField)
+document.getElementById('solve').addEventListener('click', solveFieldL1)
 
-//new game button
-document.getElementById('new').addEventListener('click', newGame)
+//level1 button
+document.getElementById('level1').addEventListener('click', createFieldL1)
+
+//level 2 button
+document.getElementById('level2').addEventListener('click', createFieldL2)
+
+//level 3 button
 
 //------------functions------------------
-init();
 
-function init(){
-    createField();
-}
-
+//LEVEL ONE//
+//LEVEL ONE//
+//LEVEL ONE//
 //build the whole game board
-function createField(){
+function createFieldL1(){
   solution1.forEach(function(row, ridx){
     row.forEach(function(cell, cidx){
         let newDiv = document.createElement('div');
         newDiv.setAttribute('class', 'cell');
-        //newDiv.setAttribute('value', cell)
         container.appendChild(newDiv);
         newDiv.innerHTML = board1[ridx][cidx];
         if (board1[ridx][cidx] === null) {
@@ -122,19 +123,14 @@ function createField(){
   })
 }
 
-//only can enter numbers 1-9
-function checkKeyDown(event) {
-    if (event.key !== 'Backspace' && !event.key.match(/^[1-9]$/g))
-        event.preventDefault();
-}
 
 //function for the keyup event listener 
-function handleKeyUp(evt){
-    checkWinner(checkInput(evt));
+function handleKeyUpL1(evt){
+    checkWinnerL1(checkInputL1(evt));
 }
 
 //check if the input matches the solution board 
-function checkInput(evt){
+function checkInputL1(evt){
     let guessInput = evt.target
     let guess = evt.target.value;
     // console.log(guess)
@@ -150,21 +146,24 @@ function checkInput(evt){
         }
         return true;
     } else {
-        let wrongAnswer = document.querySelectorAll('cell');
-        wrongAnswer.setAttribute('class', 'wrongcell')
         return false;
     }
 }
 
-function checkWinner(isSolved){ //@param -> boolean
+//check if all of the inputs are entered and changes board if won 
+function checkWinnerL1(isSolved){ //@param -> boolean
     let inputAmount = document.querySelectorAll('input'); //returns a dom list
     console.log(inputAmount)
     if ((isSolved === true) && (inputAmount.length === 0)) {
         console.log('winner');
+        container.style.color = 'green';
+        let winnerHeadline = document.getElementById('headline');
+        winnerHeadline.innerText = "You Win!";
     }
 }
 
-function solveField(){
+//function for the solve button to replace the board with the solution board
+function solveFieldL1(){
     const solvedBoard = solution1.map(array => array.map(num => {
         let newDiv = document.createElement('div');
         newDiv.setAttribute('class', 'cell');
@@ -179,22 +178,83 @@ function solveField(){
     })
 }
 
-function newGame(){
-    const newBoard = board1.map(array => array.map(num => {
-        let newDiv = document.createElement('div');
-        newDiv.setAttribute('class', 'cell');
-        newDiv.innerText = num;
-        return newDiv
-    })).flat()
-    //console.log(solvedBoard)
-    let oldDivs = document.querySelectorAll('.cell')
-    //console.log(oldDivs)
-    oldDivs.forEach((node, index) => {
-        node.replaceWith(newBoard[index])
-        if (board1[index] === null) {
-            newDiv.innerHTML = `<input type='text' data-answer=${solution1[index]} class='guesses'></input>`;
-            newDiv.setAttribute('value', null)
-            newDiv.addEventListener('keydown', checkKeyDown);
-        }
+
+//-----------------------------LEVEL 2 LEVEL 2 LEVEL 2
+//LEVEL 2
+//LEVEL 2
+
+//build the whole game board
+function createFieldL2(){
+    solution2.forEach(function(row, ridx){
+      row.forEach(function(cell, cidx){
+          let newDiv = document.createElement('div');
+          newDiv.setAttribute('class', 'cell');
+          container.appendChild(newDiv);
+          newDiv.innerHTML = board2[ridx][cidx];
+          if (board2[ridx][cidx] === null) {
+              newDiv.innerHTML = `<input type='text' data-answer=${solution2[ridx][cidx]} class='guesses'></input>`;
+              newDiv.setAttribute('value', null)
+              newDiv.addEventListener('keydown', checkKeyDown);
+          }
+      })
     })
-}
+  }
+  
+  
+  //function for the keyup event listener 
+  function handleKeyUpL2(evt){
+      checkWinnerL2(checkInputL2(evt));
+  }
+  
+  //check if the input matches the solution board 
+  function checkInputL2(evt){
+      let guessInput = evt.target
+      let guess = evt.target.value;
+      // console.log(guess)
+      let answer = evt.target.getAttribute('data-answer');
+      if (guess === answer) {
+          //console.log(true);
+          let correctAnswerEl = document.createElement('div');
+          correctAnswerEl.setAttribute('class', 'newcell');
+          correctAnswerEl.innerText = answer;
+          console.log(correctAnswerEl)
+          if (guessInput !== null){
+              guessInput.parentNode.replaceChild(correctAnswerEl, guessInput);
+          }
+          return true;
+      } else {
+          return false;
+      }
+  }
+  
+  //check if all of the inputs are entered and changes board if won 
+  function checkWinnerL2(isSolved){ //@param -> boolean
+      let inputAmount = document.querySelectorAll('input'); //returns a dom list
+      console.log(inputAmount)
+      if ((isSolved === true) && (inputAmount.length === 0)) {
+          console.log('winner');
+          container.style.color = 'green';
+          let winnerHeadline = document.getElementById('headline');
+          winnerHeadline.innerText = "You Win!";
+      }
+  }
+  
+  //function for the solve button to replace the board with the solution board
+  function solveFieldL2(){
+      const solvedBoard = solution2.map(array => array.map(num => {
+          let newDiv = document.createElement('div');
+          newDiv.setAttribute('class', 'cell');
+          newDiv.innerText = num;
+          return newDiv
+      })).flat()
+      //console.log(solvedBoard)
+      let oldDivs = document.querySelectorAll('.cell')
+      //console.log(oldDivs)
+      oldDivs.forEach((node, index) => {
+          node.replaceWith(solvedBoard[index])
+      })
+  }
+
+
+
+

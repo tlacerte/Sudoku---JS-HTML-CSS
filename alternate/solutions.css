@@ -67,11 +67,6 @@ button:hover {
 }
 
 .newcell {
-    background-color: #C1DBB3;
-    color: #045412;
+    color: green;
     height: 50px;
-}
-
-.wrongcell {
-    color: red;
 }
