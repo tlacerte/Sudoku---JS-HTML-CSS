@@ -181,12 +181,9 @@ function solveFieldL1(){
     })
 }
 
-
-//-----------------------------LEVEL 2 LEVEL 2 LEVEL 2
-
+//--LEVEL 2 LEVEL 2 LEVEL 2--------------------------
 //LEVEL 2//
 //LEVEL 2//
-
 
 //build the whole game board
 function createFieldL2(){
