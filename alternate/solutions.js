@@ -11,16 +11,28 @@ const solution1 = [
 ]
 
 var board1 = [
-    [1, null, null, 4, 8, null, null, 7, 6],
-    [7, null, 9, 2, null, 6, null, null, 1],
-    [null, 6, null, null, null, 1, 2, 9, null],
-    [3, null, 7, null, 2, null, null, 5, 9],
-    [null, 9, null, 7, null, null, null, null, 8],
-    [null, 4, null, 8, null, 5, null, 1, null],
-    [9, null, 4, null, null, 7, null, 8, 2],
-    [6, null, 5, null, null, 8, 1, null, 7],
-    [null, 7, null, null, 1, null, 9, null, 4]
+    [1, null, null, 4, 8, 9, 3, 7, 6],
+    [7, 3, 9, 2, 5, 6, 8, 4, 1],
+    [4, 6, 8, 3, 7, 1, 2, 9, 5],
+    [3, 8, 7, 1, 2, 4, 6, 5, 9],
+    [5, 9, 1, 7, 6, 3, 4, 2, 8],
+    [2, 4, 6, 8, 9, 5, 7, 1, 3],
+    [9, 1, 4, 6, 3, 7, 5, 8, 2],
+    [6, 2, 5, 9, 4, 8, 1, 3, 7],
+    [8, 7, 3, 5, 1, 2, 9, 6, 4]
 ]
+
+// var board1 = [
+//     [1, null, null, 4, 8, null, null, 7, 6],
+//     [7, null, 9, 2, null, 6, null, null, 1],
+//     [null, 6, null, null, null, 1, 2, 9, null],
+//     [3, null, 7, null, 2, null, null, 5, 9],
+//     [null, 9, null, 7, null, null, null, null, 8],
+//     [null, 4, null, 8, null, 5, null, 1, null],
+//     [9, null, 4, null, null, 7, null, 8, 2],
+//     [6, null, 5, null, null, 8, 1, null, 7],
+//     [null, 7, null, null, 1, null, 9, null, 4]
+// ]
 
 const solution2 = [
     [7, 4, 9, 8, 5, 1, 3, 6, 2],
@@ -58,44 +70,108 @@ const solution3 = [
     [6, 8, 4, 3, 5, 7, 1, 2, 9]
 ]
 
-var board3 = []
+var board3 = [
+        [null, 9, null, null, 7, 3, null, 1, 4],
+        [7, 4, null, null, null, 1, 8, null, 5],
+        [null, 1, null, 4, null, 8, null, 7, null],
+        [4, 5, null, null, null, 2, null, 9, 1],
+        [null, null, 8, null, 3, null, 2, null, 7],
+        [1, null, 3, null, 4, null, null, 6, null],
+        [2, null, null, null, 9, null, 4, null, 3],
+        [null, 3, null, 2, null, 4, null, null, 6],
+        [6, null, null, 3, null, 7, 1, 2, null]
+]
+
 
 const container = document.querySelector(".container");
 
+
+//functions
 init();
 
 function init(){
     createField();
 }
 
+//build the whole game board
 function createField(){
   solution1.forEach(function(row, ridx){
-    row.forEach(function(c7ell, cidx){
+    row.forEach(function(cell, cidx){
         let newDiv = document.createElement('div');
         newDiv.setAttribute('class', 'cell');
         //newDiv.setAttribute('value', cell)
         container.appendChild(newDiv);
         newDiv.innerHTML = board1[ridx][cidx];
         if (board1[ridx][cidx] === null) {
-            newDiv.innerHTML = `<input type='text' data-answer=${solution1[ridx][cidx]} id='guess'></input>`;
+            newDiv.innerHTML = `<input type='text' data-answer=${solution1[ridx][cidx]} class='guesses'></input>`;
             newDiv.setAttribute('value', null)
+            newDiv.addEventListener('keydown', checkKeyDown);
         }
     })
   })
 }
 
+//only can enter numbers 1-9
+function checkKeyDown(event) {
+    if (event.key !== 'Backspace' && !event.key.match(/^[1-9]$/g))
+        event.preventDefault();
+}
+
+//check if the input matches the solution board 
 function checkInput(evt){
+    let guessInput = evt.target
     let guess = evt.target.value;
+    // console.log(guess)
     let answer = evt.target.getAttribute('data-answer');
     if (guess === answer) {
-        
-        console.log('true')
+        //console.log(true);
+        let correctAnswerEl = document.createElement('div');
+        correctAnswerEl.setAttribute('class', 'cell');
+        correctAnswerEl.innerText = answer;
+        console.log(correctAnswerEl)
+        if (guessInput !== null){
+            guessInput.parentNode.replaceChild(correctAnswerEl, guessInput);
+        }
+        return true;
     } else {
-        console.log('false')
+        //console.log(false);
+        return false;
+    }
+    
+}
+
+function handleKeyUp(evt){
+    checkWinner(checkInput(evt));
+}
+//event listener to check the input against the solution 
+document.querySelector('.container').addEventListener('keyup', handleKeyUp)
+
+
+function checkWinner(isSolved){ //@param -> boolean
+    let inputAmount = document.querySelectorAll('input'); //returns a dom list
+    console.log(inputAmount)
+    if ((isSolved === true) && (inputAmount.length === 0)) {
+        console.log('winner');
     }
 }
 
-//event listener to check the input against the solution 
-document.querySelector('.container').addEventListener('keyup', checkInput)
+//buttons
+//solve button - to solve the whole board 
+document.getElementById('solve').addEventListener('click', solveField)
 
+function solveField(){
+    const solvedBoard = solution1.map(array => array.map(num => {
+        let newDiv = document.createElement('div');
+        newDiv.setAttribute('class', 'cell');
+        newDiv.innerText = num;
+        return newDiv
+    })).flat()
+    console.log(solvedBoard)
+    let oldDivs = document.querySelectorAll('.cell')
+    console.log(oldDivs)
+    oldDivs.forEach((node, index) => {
+        node.replaceWith(solvedBoard[index])
+    })
+    //container.appendChild(solvedBoard);
+}
 
