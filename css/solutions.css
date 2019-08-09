@@ -27,10 +27,6 @@ section {
     margin-top: 20px;
 }
 
-.container > div {
-    background: white;
-}
-
 h1 {
     text-align: center;
     background: #FFFFFF;
@@ -46,6 +42,7 @@ h1 {
     font-size: 35px;
     text-align: center;
     vertical-align: middle;
+    background: white;
 }
 
 .cell:hover {
@@ -77,12 +74,216 @@ button {
 }
 
 button:hover {
-        background: #ebebeb;
-        text-decoration: none;
+    background: #ebebeb;
+    text-decoration: none;
 }
 
 .newcell {
     color: green;
     height: 50px;
+    border: 4px solid green;
 }
+
+/* sudoku borders */
+.container div:nth-child(1){
+    border-top: 4px solid black;
+    border-left: 4px solid black;
+}
+.container div:nth-child(2){
+    border-top: 4px solid black;
+}
+.container div:nth-child(3){
+    border-top: 4px solid black;
+    border-right: 4px solid black;
+}
+.container div:nth-child(4){
+    border-top: 4px solid black;
+}
+.container div:nth-child(5){
+    border-top: 4px solid black;
+}
+.container div:nth-child(6){
+    border-top: 4px solid black;
+    border-right: 4px solid black;
+}
+.container div:nth-child(7){
+    border-top: 4px solid black;
+}
+.container div:nth-child(8){
+    border-top: 4px solid black;
+}
+.container div:nth-child(9){
+    border-top: 4px solid black;
+    border-right: 4px solid black;
+}
+.container div:nth-child(10){
+    border-left: 4px solid black;
+}
+.container div:nth-child(12){
+    border-right: 4px solid black;
+}
+.container div:nth-child(15){
+    border-right: 4px solid black;
+}
+.container div:nth-child(15){
+    border-right: 4px solid black;
+}
+.container div:nth-child(18){
+    border-right: 4px solid black;
+}
+.container div:nth-child(19){
+    border-bottom: 4px solid black;
+    border-left: 4px solid black;
+}
+.container div:nth-child(20){
+    border-bottom: 4px solid black;
+}
+.container div:nth-child(21){
+    border-bottom: 4px solid black;
+    border-right: 4px solid black;
+}
+.container div:nth-child(22){
+    border-bottom: 4px solid black;
+}
+.container div:nth-child(23){
+    border-bottom: 4px solid black;
+}
+.container div:nth-child(24){
+    border-bottom: 4px solid black;
+    border-right: 4px solid black;
+}
+.container div:nth-child(25){
+    border-bottom: 4px solid black;
+}
+.container div:nth-child(26){
+    border-bottom: 4px solid black;
+}
+.container div:nth-child(27){
+    border-bottom: 4px solid black;
+    border-right: 4px solid black;
+}
+.container div:nth-child(28){
+    border-left: 4px solid black;
+}
+.container div:nth-child(30){
+    border-right: 4px solid black;
+}
+.container div:nth-child(33){
+    border-right: 4px solid black;
+}
+.container div:nth-child(36){
+    border-right: 4px solid black;
+}
+.container div:nth-child(37){
+    border-left: 4px solid black;
+}
+.container div:nth-child(39){
+    border-right: 4px solid black;
+}
+.container div:nth-child(42){
+    border-right: 4px solid black;
+}
+.container div:nth-child(45){
+    border-right: 4px solid black;
+}
+.container div:nth-child(46){
+    border-bottom: 4px solid black;
+    border-left: 4px solid black;
+}
+.container div:nth-child(47){
+    border-bottom: 4px solid black;
+}
+.container div:nth-child(48){
+    border-bottom: 4px solid black;
+    border-right: 4px solid black;
+}
+.container div:nth-child(49){
+    border-bottom: 4px solid black;
+}
+.container div:nth-child(50){
+    border-bottom: 4px solid black;
+}
+.container div:nth-child(51){
+    border-bottom: 4px solid black;
+    border-right: 4px solid black;
+}
+.container div:nth-child(52){
+    border-bottom: 4px solid black;
+}
+.container div:nth-child(53){
+    border-bottom: 4px solid black;
+}
+.container div:nth-child(54){
+    border-bottom: 4px solid black;
+    border-right: 4px solid black;
+}
+.container div:nth-child(55){
+    border-left: 4px solid black;
+}
+.container div:nth-child(57){
+    border-right: 4px solid black;
+}
+.container div:nth-child(60){
+    border-right: 4px solid black;
+}
+.container div:nth-child(63){
+    border-right: 4px solid black;
+}
+.container div:nth-child(64){
+    border-left: 4px solid black;
+}
+.container div:nth-child(66){
+    border-right: 4px solid black;
+}
+.container div:nth-child(69){
+    border-right: 4px solid black;
+}
+.container div:nth-child(72){
+    border-right: 4px solid black;
+}
+.container div:nth-child(73){
+    border-bottom: 4px solid black;
+    border-left: 4px solid black;
+}
+.container div:nth-child(74){
+    border-bottom: 4px solid black;
+}
+.container div:nth-child(75){
+    border-bottom: 4px solid black;
+    border-right: 4px solid black;
+}
+.container div:nth-child(76){
+    border-bottom: 4px solid black;
+}
+.container div:nth-child(77){
+    border-bottom: 4px solid black;
+}
+.container div:nth-child(78){
+    border-bottom: 4px solid black;
+    border-right: 4px solid black;
+}
+.container div:nth-child(79){
+    border-bottom: 4px solid black;
+}
+.container div:nth-child(80){
+    border-bottom: 4px solid black;
+}
+.container div:nth-child(81){
+    border-bottom: 4px solid black;
+    border-right: 4px solid black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
