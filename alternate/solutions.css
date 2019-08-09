@@ -2,20 +2,21 @@ body {
     font-family: 'Trebuchet MS';
     display: block;
     margin: auto;
-    /* background-image: url("https://cdn2.okuhaber.com/wp-content/uploads/2019/02/sudoku-oyunu-nedir-1.jpg");
+    background-image: url("https://wallpaperaccess.com/full/30205.jpg");
     background-size: cover;
-    background-repeat: no-repeat; */
+    background-repeat: no-repeat;
 }
 
 section {
     display: grid;
     justify-content: center;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas: 
-    'newgame lev1 lev2 lev3'
-    'newgame sol1 sol2 sol3'
+    grid-template-columns: 150px 150px 150px 150px;
+    grid-template-rows: 35px 35px;
         
+}
+
+#newgame {
+    height: 70px;
 }
 
 .container {
@@ -27,10 +28,6 @@ section {
     margin-top: 20px;
 }
 
-.container:nth-child(0){
-    border-left: 2px solid black;
-}
-
 .container > div {
     background: white;
 }
@@ -38,9 +35,9 @@ section {
 h1 {
     text-align: center;
     background: #FFFFFF;
-    text-shadow: 2px 2px 0 #bcbcbc, 4px 4px 0 #9c9c9c;
+    text-shadow: 2px 2px 0 lightblue, 4px 4px 0 white;
     color: #000000;
-    font-size: 40px;
+    font-size: 50px;
     margin-bottom: 25px;
     background: transparent;
 }
@@ -76,7 +73,7 @@ button {
     background: white;
     margin-bottom: 1px;
     border: 2px solid black;
-    text-shadow: 1px 1px 0 #bcbcbc, 1px 1px 0 #9c9c9c;
+    text-shadow: 1px 1px 0 lightblue, 1px 1px 0 #9c9c9c;
     outline: none;
 }
 
@@ -89,3 +86,4 @@ button:hover {
     color: green;
     height: 50px;
 }
+

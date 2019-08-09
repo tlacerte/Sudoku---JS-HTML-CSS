@@ -73,6 +73,7 @@ var board3 = [
 //where the sudoku board is going to go
 const container = document.querySelector(".container");
 
+//functions that apply to all levels
 //only can enter numbers 1-9
 function checkKeyDown(event) {
     if (event.key !== 'Backspace' && !event.key.match(/^[1-9]$/g))
@@ -90,7 +91,6 @@ document.getElementById('newgame').addEventListener('click', newGame);
 document.querySelector('.container').addEventListener('keyup', handleKeyUpL1, handleKeyUpL2, handleKeyUpL3)
 
 //buttons
-
 //level1 buttons
 document.getElementById('level1').addEventListener('click', createFieldL1)
 //solve button - to solve the whole board, uses solveField function
@@ -125,7 +125,6 @@ function createFieldL1(){
     })
   })
 }
-
 
 //function for the keyup event listener 
 function handleKeyUpL1(evt){
