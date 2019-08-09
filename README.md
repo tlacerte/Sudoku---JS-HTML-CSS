@@ -13,46 +13,42 @@ This is how the page of the game will be set up when levels are established.
 ![alt wireframe](https://i.imgur.com/O8BnCJ8.png)
 
 ## User stories 
-As a user, I can play the classic game of Sudoku on a web application. 
-I can play the game by myself and win or lose depending on my own problem solving abilities. 
-I am told when my guess is right or wrong, leading me to rethink my answer. 
-I can restart and solve the game as many times as I want to. 
+Ideal User  - Someone looking to relax, such as one does on a beach, by playing a few games of Sudoku.
+
+- As a user, I can play the classic game of Sudoku on a web application. 
+- I can play the game by myself and win or lose depending on my own problem solving abilities. 
+- My guess saves when it is correct so I can move on to the other options. 
+- I can restart and solve the game as many times as I want to. 
 
 ## Features list 
-- Randomly generates Sudoku board on launch
-- Solve button for when stuck 
-- New Game button will generate a new game board
+- Generates three different boards, all with their own difficulty level
+- Solve button for when the user gives up 
+- New Game button will refresh the page and the level buttons will generate the board of that level
 - Directly type guesses in the board
-- Board animates when the user wins the game
+- Correct guesses turn green and store in the board so the user can move on 
 
 ## Stretch goals 
-1. Have level options that will randomly fill the board with more or less numbers to start out with
-2. Background color of box will change where the guess is right or wrong
-3. Highlight the Row and Column when hovering over a box on the game grid
-4. Score counter to count how many times the user has won/timer and record best time 
-5. Only have 3 tries to get an answer wrong resulting in Game Over 
+1. Highlight the Row and Column when hovering over a box on the game grid
+2. Score counter to count how many times the user has won/timer and record best time 
+3. Only have 3 tries to get an answer wrong resulting in Game Over 
+4. Generate random boards with logic of no repeats within the boxes, rows, or columns 
 
 ## Pseudocode
 Pseudocode 
 
-1. Initialize application by having the game board ready to play 
+1. The page opens with three level options to choose from, press the button to generate a board
 
-1.1 Use forEach to loop through 9x9 array and create div elements through JS
+2. Use forEach to loop through 9x9 array and create div elements through JS
 
-1.2 Make each element an input so players can type directly into the game board
+3. Make each element an input so players can type directly into the game board
 
-2. Through the render function, establish solution possibilities
+4. After a user types (handleKeyUp function), the input is checked if it is the same as the solution 
 
-2.1 Use addition to see if the boxes, columns and rows all === 45
+5. The function will check if there is a winner by looking if there are any open inputs
 
-2.2 Within the solution, randomly input half of the board for the players to use to play
+6. If the input is correct, the value will be stored and turn green 
 
-2.3 Continue to check if the user’s input matches the solution 
+7. If the user get stuck, there is a solve button that will fill in the board with the solution
 
-2.3.1 Store the input 
+8. Repeat for any of the level options 
 
-2.3.2 Change back ground of input depending if the guess matches the solution
-
-3. When the board is complete, display a message and animate the board
-
-4. Pressing the “new game” button will regenerate a board to play 
